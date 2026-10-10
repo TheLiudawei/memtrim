@@ -1,0 +1,29 @@
+﻿# ============================================================
+#  编辑器统一约定
+#  与 .gitattributes / tools\check-encoding.ps1 保持一致：
+#  文本文件一律 UTF-8（含 BOM）+ CRLF。
+#
+#  带 BOM 不是洁癖：Windows PowerShell 5.1 读取无 BOM 的 .ps1 时会按
+#  系统 ANSI 代码页（中文系统 = GBK）解码，源码里的中文注释会直接把
+#  语法解析搞坏（报「缺少右 }」这类看不出原因的错误）。
+# ============================================================
+root = true
+
+[*]
+charset = utf-8-bom
+end_of_line = crlf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{png,ico}]
+charset = unset
+end_of_line = unset
+insert_final_newline = unset
+
+[.gitignore]
+charset = utf-8
